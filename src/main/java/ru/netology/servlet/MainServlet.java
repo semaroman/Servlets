@@ -18,14 +18,11 @@ public class MainServlet extends HttpServlet {
     private final String REGEX_FOR_GET_AND_REMOVE_POST = "/api/posts/\\d+";
     private final String SLASH = "/";
     private PostController controller;
-    private PostRepository repository;
-    private PostService service;
 
     @Override
     public void init() {
-        repository = new PostRepository();
-        service = new PostService(repository);
-        controller = new PostController(service);
+        final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        controller = context.getBean(PostController.class);
     }
 
     private long getId(String path) {
