@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-
-// Stub
+@Repository
 public class PostRepository {
     private final AtomicLong postId;
     private final ConcurrentHashMap<Long, Post> posts;
